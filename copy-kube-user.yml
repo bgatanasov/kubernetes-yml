@@ -1,0 +1,12 @@
+---
+- hosts: server
+  become: true
+
+  tasks:
+
+    - name: Setup kubeconfig for docker user
+      command: "{{ item }}"
+      with_items:
+       - mkdir -p /home/docker/.kube
+       - cp -i /etc/kubernetes/admin.conf /home/docker/.kube/config
+       - chown docker:docker /home/docker/.kube/config
