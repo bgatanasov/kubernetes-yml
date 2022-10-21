@@ -1,0 +1,6 @@
+---
+- hosts: server
+  tasks:
+
+  - name : install haproxy ingress
+    command: kubectl apply -f https://raw.githubusercontent.com/haproxytech/kubernetes-ingress/master/deploy/haproxy-ingress.yaml
