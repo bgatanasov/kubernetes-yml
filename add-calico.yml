@@ -4,7 +4,7 @@
 
    - name: Install calico pod network
      command: kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/tigera-operator.yaml
-   - name: add custom networks
-     command: curl  https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/custom-resources.yaml -O
+#   - name: add custom networks
+#     command: curl  https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/custom-resources.yaml -O
    - name: apply custom resource
-     command kubectl apply -f /home/docker/custom-resources.yaml
+     command: kubectl apply -f /home/docker/custom-resources.yaml
