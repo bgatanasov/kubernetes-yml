@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+
+  - name: add br_netfilter module
+    copy:
+        src: k8s.conf
+        dest: /etc/modules-load.d/k8s.conf
+        owner: root
+        group: root
+        mode: '0644'
+        backup: yes
+
+  - name: add net parameters in sysctl
+    copy:
+        src: k8s-net.conf
+        dest: /etc/sysctl.d/k8s.conf
+        owner: root
+        group: root
+        mode: '0644'
+        backup: yes
+  - name: relaod sysctl
+    command: sysctl --system
